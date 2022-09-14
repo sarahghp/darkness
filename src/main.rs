@@ -25,11 +25,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let lat = city_with_location.latitude;
     let long = city_with_location.longitude;
 
-    let (day_length, hours_of_darkness) = get_darkness(lat, long).await?;
+    let (dark_length, hours_of_darkness) = get_darkness(lat, long).await?;
 
     let dark = Dark {
         value: hours_of_darkness,
-        as_string: day_length,
+        as_string: dark_length,
     };
 
     draw_output(dark);

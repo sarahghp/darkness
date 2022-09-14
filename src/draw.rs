@@ -32,7 +32,7 @@ fn line_to_string(darkness: &Dark, val: i32, fill: &str) -> String {
         6 | 14 => create_stars(39),
         7 | 13 => create_stars(41),
         8 | 9 | 11 | 12 => create_stars(43),
-        10 => String::from(amt_darkness),
+        10 => amt_darkness,
         _ => String::from(""),
     }
 }
