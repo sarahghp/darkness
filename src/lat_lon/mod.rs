@@ -16,6 +16,8 @@ pub async fn get_location(
     city: &str,
     country: &str,
 ) -> Result<(CityWithLocation), Box<dyn std::error::Error>> {
+    println!("\n 🧭 Finding city location but in numbers.");
+
     let lat_long_url = format!(
         "https://api.api-ninjas.com/v1/geocoding?city={city}&country={country}",
         city = city,

@@ -19,6 +19,8 @@ pub async fn get_darkness(
     lat: f64,
     long: f64,
 ) -> Result<(std::string::String, u32), Box<dyn std::error::Error>> {
+    println!(" 💌 Fetching darkness ...");
+
     let darkness_url = format!(
         "https://api.sunrise-sunset.org/json?lat={latitude}&lng={longitude}",
         latitude = lat,
@@ -28,6 +30,8 @@ pub async fn get_darkness(
     let darkness_response = reqwest::get(&darkness_url).await?;
     let data: WeatherResponse = darkness_response.json().await?;
     let day_length = data.results.day_length;
+
+    println!(" 🌑 Considering darkness ...\n\n");
 
     let parsed_day_length = NaiveTime::parse_from_str(&day_length, "%H:%M:%S")
         .with_context(|| "Unable to parse day length response. Sorry!")?;
