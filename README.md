@@ -1,6 +1,6 @@
 # Darkness Check
 
-A little CLI, built in Rust that let's you find out how many hours of darkness you're in for today. 
+A little CLI, built in Rust that lets you find out how many hours of darkness you're in for today. 
 
 ## Usage 
 
