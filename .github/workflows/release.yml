@@ -67,7 +67,7 @@ jobs:
         run: rustup target add ${{ matrix.target }}
 
       - name: Build
-        run: cargo build --release --target ${{ matrix.target }}
+        run: DARK_KEY={{ secrets.DARK_KEY }} cargo build --release --target ${{ matrix.target }}
 
       - name: Set RUSTFLAGS (Windows)
         if: matrix.os == 'windows-latest'
