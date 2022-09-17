@@ -37,7 +37,7 @@ pub async fn get_location(
         .await
         .with_context(|| "Failed to parse city location response")?;
 
-    let city_with_location = cities.get(0).with_context(|| format!("Unable to find long/lat for {}, {}. If the name has a space, try wrapping it in quotes.", city, country))?;
+    let city_with_location = cities.get(0).with_context(|| format!("Unable to find long/lat for {}, {}. If the name has a space, try wrapping it in quotes. \n\nIf you have provided lat/long instead of city and country, please try city and country. Darkness Check will always look up by city name when you have provided an API key.", city, country))?;
 
     Ok(city_with_location.clone())
 }
