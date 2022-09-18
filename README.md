@@ -2,11 +2,15 @@
 
 A little CLI, built in Rust that lets you find out how many hours of darkness you're in for today. 
 
+![Example of darkness-check running, looking up the hours of darkness in Berlin, Germany; Bodo, Norway; and Bogota, Colombia. The output is an ascii circle, colored by how many of hours of darkness are expected today.](./gifs/00_intro.gif)
+
 ## Usage 
 
 There are a handful of ways to use the `darkness-check` app, balanced between looking up lat-long for locations yourself or getting an API key so the app can look it up for you.
 
 ### No Config: Bring Your Own Lat/Long Points 
+
+![Example of using darkness-check with the latitude and longitude of Berlin, Germany.](./gifs/01_lat-long-no-config.gif)
 
 ```
 darkness-check <LAT> <LONG>
@@ -14,13 +18,24 @@ darkness-check <LAT> <LONG>
 
 NOTE: If you have provided an API key, this will fail and you should look up by city and country OR you can overwrite it by using the env variable
 
+![Example of previous query failing and the suggested replacement code, as written below, succeeding.](./gifs/02_lat-long-config.gif)
+
 ```
 DARK_POINT="52.520008 13.404954" darkness-check 
 ```
 
 ### A Little Config
 
-Put the latitude and longitude points in your `dark-config.toml` or `dark-config.json`. Then call it like this: 
+![Example of using darkness-check with no input, because the point is being pulled from the config file](./gifs/03_lat-long-in-config.gif)
+
+Put the latitude and longitude points in your `dark-config.toml` or `dark-config.json`.
+
+```toml
+# dark-config.toml
+point = "52.520008 13.404954"
+```
+
+Then call it like this: 
 
 ```
 darkness-check
@@ -29,6 +44,8 @@ darkness-check
 The `dark-config` file must be in the same directory hierarchy as the executable. (That is, it can be in parent directory, etc.)
 
 ### More Config, More Flexibility
+
+![Example using darkness-check with city names, including placing city names with spaces in quotes.](./gifs/04_mexico-city.gif)
 
 If you want to look up locations by name, you will need to create a free account at [API Ninjas](https://api-ninjas.com/) and add the `key` field to `dark-config.toml`.
 
@@ -69,6 +86,8 @@ There are two ways to install the tool: manually or using [`cargo install`](http
 Download the [latest release](https://github.com/sarahghp/darkness/releases); decompress and add to your path.
 
 #### Mac/Linux
+
+![Gif showing the installation steps outlined below.](./gifs/05_manual_install.gif)
 
 Decompress either by double-clicking the dwnloaded file or with 
 
