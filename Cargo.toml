@@ -1,5 +1,6 @@
 [package]
 name = "darkness-check"
+description = "Find out how many hours of darkness you are in for today."
 authors = ["Sarah GHP <sarahghp@axo.dev>"]
 license-file = "./LICENSE"
 readme = "README.md"
