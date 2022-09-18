@@ -85,7 +85,7 @@ async fn main() -> Result<(), anyhow::Error> {
             ..
         } => {
             let lat = lat_str.parse::<f64>().with_context(|| {e_pink.apply_to("\nUnreadable latitude value. Did you pass a city name instead?\nTo pass city by name, provide API key, either in config or as DARK_KEY env variable.")})?;
-            let long = long_str.parse::<f64>()?;
+            let long = long_str.parse::<f64>().with_context(|| {e_pink.apply_to("\nUnreadable longitude value. Did you pass a city name instead?\nTo pass city by name, provide API key, either in config or as DARK_KEY env variable.")})?;
             draw_with_location(lat, long).await;
         }
         Settings {

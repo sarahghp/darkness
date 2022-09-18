@@ -26,7 +26,7 @@ Put the latitude and longitude points in your `dark-config.toml` or `dark-config
 darkness-check
 ```
 
-The `dark-config` file must be in the same directory as the executable.
+The `dark-config` file must be in the same directory hierarchy as the executable. (That is, it can be in parent directory, etc.)
 
 ### More Config, More Flexibility
 
@@ -40,19 +40,19 @@ key = "API_KEY_FROM_API_NINJAS"
 Then look up any city and country.
 
 ```
-darkness-check -- berlin germany 
+darkness-check berlin germany 
 ```
 
 Put cities with multiple words in quotes.
 
 ```
-darkness-check -- "mexico city" mexico
+darkness-check "mexico city" mexico
 ```
 
-The `dark-config` file must be in the same directory as the executable, but if you don't like that, the API key can also be provided as an environment variable.
+The `dark-config` file must be in the same directory hierarchy as the executable, but if you don't like that, the API key can also be provided as an environment variable.
 
 ```
-DARK_KEY="jfhkaljkrhfjrhuljkhs" darkness-check -- berlin germany 
+DARK_KEY="jfhkaljkrhfjrhuljkhs" darkness-check berlin germany 
 ```
 
 ### Coming Soon
@@ -100,6 +100,8 @@ which darkness-check
 ```
 
 Now you can run `darkness-check`. Well, almost, if you're on a Mac. This is an unsigned app, so after you try to run it for the first time, you will get an error say it's unsigned. Go to `Security & Privacy > General`, and click `Allow anyway`. 
+
+If you want to use a config file, I recommend adding it to `~`: `touch dark-config.toml`.
 
 #### Windows
 
