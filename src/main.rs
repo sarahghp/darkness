@@ -17,7 +17,7 @@ use lat_lon::get_location;
 #[derive(Debug)]
 struct Settings {
     key: Option<String>,
-    points: Option<String>,
+    point: Option<String>,
     arg1: Option<String>,
     arg2: Option<String>,
 }
@@ -47,13 +47,13 @@ async fn main() -> Result<(), anyhow::Error> {
      *  */
 
     let config = Config::builder()
-        .add_source(config::File::with_name("config").required(false))
+        .add_source(config::File::with_name("dark-config").required(false))
         .add_source(config::Environment::with_prefix("DARK"))
         .build()
         .unwrap_or_default();
 
     let settings = Settings {
-        points: config.get::<String>("points").ok(),
+        point: config.get::<String>("point").ok(),
         key: config.get::<String>("key").ok(),
         arg1: std::env::args().nth(1),
         arg2: std::env::args().nth(2),
@@ -63,7 +63,7 @@ async fn main() -> Result<(), anyhow::Error> {
 
     match settings {
         Settings {
-            points: None,
+            point: None,
             key: None,
             arg1: None,
             arg2: None,
@@ -71,7 +71,7 @@ async fn main() -> Result<(), anyhow::Error> {
             bail!(e_pink.apply_to("\nTo use darkness-check please provide a location in the form:\ndarkness-check <LAT> <LONG> \nor see documentation for other options."))
         }
         Settings {
-            points: None,
+            point: None,
             key: Some(_),
             arg1: None,
             arg2: None,
@@ -89,11 +89,11 @@ async fn main() -> Result<(), anyhow::Error> {
             draw_with_location(lat, long).await;
         }
         Settings {
-            points: Some(points),
+            point: Some(point),
             arg1: None,
             ..
         } => {
-            let (lat_str, long_str) = points.split_once(" ").unwrap();
+            let (lat_str, long_str) = point.split_once(" ").unwrap();
             let lat = lat_str.parse::<f64>()?;
             let long = long_str.parse::<f64>()?;
             draw_with_location(lat, long).await;

@@ -1,4 +1,5 @@
 use anyhow::{Context, Result};
+use console::Style;
 use reqwest::Error;
 use serde::Deserialize;
 
@@ -23,20 +24,22 @@ pub async fn get_location(
         country = country
     );
 
+    let e_pink = Style::new().color256(197);
+
     let client = reqwest::Client::new();
     let lat_long_response = client
         .get(&lat_long_url)
         .header("X-Api-Key", key)
         .send()
         .await
-        .with_context(|| "Failed to get city location")?;
+        .with_context(|| e_pink.apply_to("Failed to get city location"))?;
 
     let cities: Vec<CityWithLocation> = lat_long_response
         .json()
         .await
-        .with_context(|| "Failed to parse city location response")?;
+        .with_context(|| e_pink.apply_to("Failed to parse city location response"))?;
 
-    let city_with_location = cities.get(0).with_context(|| format!("Unable to find long/lat for {}, {}. If the name has a space, try wrapping it in quotes. \n\nIf you have provided lat/long instead of city and country, please try city and country. Darkness Check will always look up by city name when you have provided an API key.", city, country))?;
+    let city_with_location = cities.get(0).with_context(|| e_pink.apply_to(format!("Unable to find long/lat for {}, {}. If the name has a space, try wrapping it in quotes. \n\nIf you have provided lat/long instead of city and country, please try city and country. Darkness Check will always look up by city name when you have provided an API key.", city, country)))?;
 
     Ok(city_with_location.clone())
 }

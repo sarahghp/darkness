@@ -164,7 +164,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "darkness_check"
+name = "darkness-check"
 version = "0.1.0"
 dependencies = [
  "anyhow",
