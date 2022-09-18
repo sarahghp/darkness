@@ -62,7 +62,7 @@ DARK_KEY="jfhkaljkrhfjrhuljkhs" darkness-check berlin germany
 
 ## Installation
 
-There are two ways to install the tool: manually or using `cargo install`. If you already use Rust, the latter is almost certainly easier. If you don't and don't want to install it on your system, you may find the manual install more to your liking.
+There are two ways to install the tool: manually or using [`cargo install`](https://doc.rust-lang.org/book/ch14-04-installing-binaries.html). If you already use Rust, the latter is almost certainly easier. If you don't yet, but want to install it on your system, [start here](https://doc.rust-lang.org/cargo/getting-started/installation.html). And if don't want to install it on your system or are a control freak like me, you may find the manual install more to your liking.
 
 ### Manual
 
