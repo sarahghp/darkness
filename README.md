@@ -74,12 +74,31 @@ DARK_KEY="jfhkaljkrhfjrhuljkhs" darkness-check berlin germany
 
 ### Coming Soon
 
-[ ] Add multiple points in the config.
+[ ] Add multiple points in the config.  
 [ ] Put the config file in a better place.
 
 ## Installation
 
-There are two ways to install the tool: manually or using [`cargo install`](https://doc.rust-lang.org/book/ch14-04-installing-binaries.html). If you already use Rust, the latter is almost certainly easier. If you don't yet, but want to install it on your system, [start here](https://doc.rust-lang.org/cargo/getting-started/installation.html). And if don't want to install it on your system or are a control freak like me, you may find the manual install more to your liking.
+There are three ways to install the tool: manually, using `npm`, or  using [`cargo install`](https://doc.rust-lang.org/book/ch14-04-installing-binaries.html). 
+
+### Using NPM
+
+If you already use NPM, this will be easy -- run:
+
+``` bash
+npm i darkness-check
+```
+ The script generates a `package.json` and other files, so you may want to do this in a directory where that will not be polluting. The `dark-config.toml` or `dark-config.json` can be placed in whichever directory you run the utility from. I usually use `~`.
+
+Check out the [package page](https://www.npmjs.com/package/darkness-check) for more. 
+
+### Using Cargo Install 
+
+``` bash
+cargo install darkness-check
+```
+
+If you already use Rust, the last is almost certainly easier. If you don't yet, but want to install it on your system, [start here](https://doc.rust-lang.org/cargo/getting-started/installation.html). And if don't want to install it on your system or are a control freak like me, you may find the manual install more to your liking.
 
 ### Manual
 
